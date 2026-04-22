@@ -1,815 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>The Food Stop | Best Cafe & Restaurant Franchise India</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Let's Chat · Complete WhatsApp style</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #FCF8F0;
-      color: #2D2A24;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
+        body {
+            background: #0b141a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
 
-    h1, h2, h3, h4, .logo, .hero-title, .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
+        /* ===== LOGIN SCREEN ===== */
+        .login-screen {
+            width: 100%;
+            max-width: 420px;
+            background: #1e2a32;
+            border-radius: 32px;
+            padding: 40px 32px;
+            box-shadow: 0 25px 50px -12px black, 0 0 0 1px #2a5670 inset;
+            border: 1px solid #3d7a9e;
+        }
 
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 32px;
-      position: relative;
-      z-index: 2;
-    }
+        .login-screen h1 {
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    /* Header */
-    header {
-      background: rgba(44, 38, 32, 0.92);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(255,245,225,0.15);
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .logo {
-      font-size: 1.9rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #F7E5C2;
-    }
-    .logo i {
-      font-size: 2rem;
-      color: #C7A46B;
-    }
-    .logo span {
-      font-weight: 400;
-      color: #C7A46B;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #F7E5C2;
-      transition: 0.2s;
-      font-size: 0.9rem;
-      letter-spacing: 0.3px;
-    }
-    .nav-links a:hover { color: #C7A46B; }
-    .phone-link {
-      background: #C7A46B;
-      color: #2D2A24;
-      padding: 10px 22px;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: 0.2s;
-    }
-    .phone-link:hover {
-      background: #B48B4A;
-      transform: translateY(-2px);
-    }
-    .btn-primary {
-      background: #C7A46B;
-      color: #2D2A24;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.2s;
-    }
-    .btn-primary:hover {
-      background: #B48B4A;
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #C7A46B;
-      color: #C7A46B;
-      padding: 10px 24px;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .btn-outline:hover {
-      background: #C7A46B;
-      color: #2D2A24;
-    }
+        .login-screen h1 img {
+            width: 42px;
+            height: 42px;
+            filter: drop-shadow(0 4px 6px #0066aa);
+        }
 
-    /* Sections with background images */
-    section {
-      position: relative;
-      padding: 100px 0;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-    section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: 1;
-    }
-    #about::before, #menu::before, #gallery::before, #franchise::before, #news::before, #faq::before, #contact::before {
-      background: rgba(0, 0, 0, 0.4);
-    }
-    #home::before {
-      background: rgba(0, 0, 0, 0.5);
-    }
+        .input-group {
+            background: #1a3a4e;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            padding: 4px 20px;
+            border: 1px solid #3682b3;
+            display: flex;
+            align-items: center;
+        }
 
-    /* Background images (beautiful stock) */
-    #home { background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1600&auto=format'); }
-    #about { background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600&auto=format'); }
-    #menu { background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&auto=format'); }
-    #gallery { background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&auto=format'); }
-    #franchise { background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=1600&auto=format'); }
-    #news { background-image: url('https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1600&auto=format'); }
-    #faq { background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&auto=format'); }
-    #contact { background-image: url('https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=1600&auto=format'); }
+        .input-group i {
+            color: #7bc5ff;
+            font-size: 1.2rem;
+            width: 28px;
+        }
 
-    .hero {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-    .hero-tag {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #FFE2B5;
-      margin-bottom: 20px;
-    }
-    .hero-title {
-      font-size: 4.2rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: rgba(255,255,245,0.9);
-      max-width: 650px;
-      margin: 0 auto;
-    }
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 48px;
-      margin-top: 50px;
-    }
-    .hero-stats div {
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      padding: 16px 28px;
-      border-radius: 60px;
-      border: 1px solid rgba(255,215,170,0.3);
-    }
-    .hero-stats h3 {
-      font-size: 2rem;
-      color: #FFD7AA;
-      font-weight: 700;
-    }
-    .hero-stats span {
-      font-weight: 500;
-      color: #F7E5C2;
-    }
+        .input-group input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 16px 0;
+            color: white;
+            font-size: 1rem;
+        }
 
-    .section-icon {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .rotating-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(255,255,245,0.9);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.3s;
-    }
-    .rotating-icon img { width: 48px; opacity: 0.8; }
+        .input-group input::placeholder {
+            color: #8aaec9;
+        }
 
-    .section-title {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 60px;
-      color: white;
-      position: relative;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-    }
-    .section-title:after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 2px;
-      background: #FFD7AA;
-      margin: 20px auto 0;
-    }
-    .sub-title {
-      text-align: center;
-      font-size: 1.8rem;
-      margin: 50px 0 30px;
-      color: white;
-      font-weight: 500;
-      font-family: 'Cormorant Garamond', serif;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #b3d4f0;
+            margin: 16px 0 28px;
+        }
 
-    /* About card */
-    .about-card {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      align-items: center;
-      background: rgba(255, 255, 245, 0.95);
-      backdrop-filter: blur(4px);
-      border-radius: 48px;
-      padding: 48px;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-    }
-    .about-left { flex: 1.2; }
-    .about-left h3 { font-size: 2rem; color: #C7A46B; margin-bottom: 20px; }
-    .about-left p { color: #2D2A24; }
-    .about-right { flex: 1; background: white; padding: 32px; border-radius: 32px; }
-    .about-right ul { list-style: none; }
-    .about-right li { margin: 16px 0; display: flex; align-items: center; gap: 12px; color: #2D2A24; }
-    .about-right li i { color: #C7A46B; width: 24px; }
+        .checkbox-row label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
 
-    /* Gallery Card & Grid */
-    .gallery-card {
-      background: rgba(255, 255, 245, 0.95);
-      backdrop-filter: blur(4px);
-      border-radius: 48px;
-      padding: 48px 40px;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 28px;
-      margin-top: 20px;
-    }
-    .gallery-item {
-      cursor: pointer;
-      overflow: hidden;
-      border-radius: 28px;
-      transition: transform 0.3s ease, box-shadow 0.2s;
-      background: #fff;
-      box-shadow: 0 12px 25px -10px rgba(0,0,0,0.15);
-    }
-    .gallery-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.2);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.03);
-    }
-    .gallery-caption {
-      padding: 16px 12px 18px;
-      text-align: center;
-      font-weight: 600;
-      color: #2D2A24;
-      background: white;
-      font-size: 0.95rem;
-      border-top: 1px solid #f0e5d8;
-    }
-    .gallery-caption i {
-      color: #C7A46B;
-      margin-right: 6px;
-    }
+        .checkbox-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #00a884;
+        }
 
-    /* Lightbox Modal (Pop-up) */
-    .lightbox-modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(10px);
-      z-index: 2100;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .lightbox-content {
-      max-width: 85vw;
-      max-height: 85vh;
-      position: relative;
-      cursor: default;
-      animation: fadeScale 0.25s ease;
-    }
-    .lightbox-content img {
-      width: auto;
-      max-width: 100%;
-      max-height: 85vh;
-      border-radius: 28px;
-      box-shadow: 0 25px 50px -12px black;
-      border: 3px solid rgba(255,245,220,0.6);
-    }
-    .close-lightbox {
-      position: absolute;
-      top: -44px;
-      right: -12px;
-      background: rgba(0,0,0,0.6);
-      color: #FFE2B5;
-      font-size: 32px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: 0.2s;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,215,170,0.5);
-    }
-    .close-lightbox:hover {
-      background: #C7A46B;
-      color: #2D2A24;
-      transform: scale(1.05);
-    }
-    @keyframes fadeScale {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
-    }
+        .forgot-link {
+            color: #00c3b0;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-    /* Franchise, News, FAQ, Contact */
-    .franchise-card {
-      background: rgba(255, 255, 245, 0.95);
-      backdrop-filter: blur(4px);
-      border-radius: 48px;
-      padding: 48px;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-    }
-    .franchise-split { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
-    .franchise-left h3 { font-size: 2rem; color: #C7A46B; margin-bottom: 20px; }
-    .feature-badge {
-      display: inline-flex; align-items: center; gap: 8px; background: white; padding: 8px 20px;
-      border-radius: 40px; margin: 6px; font-size: 0.9rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    .franchise-right { background: white; padding: 40px; border-radius: 32px; width: 100%; max-width: 400px; }
-    .franchise-right input, .franchise-right select {
-      width: 100%; padding: 14px 18px; margin: 12px 0; border-radius: 60px;
-      border: 1px solid #E2D6C8; background: white; font-family: inherit;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 20px;
-    }
-    .menu-card {
-      background: white; border-radius: 32px; overflow: hidden; box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
-      transition: 0.3s; text-align: center;
-    }
-    .menu-card:hover { transform: translateY(-8px); }
-    .menu-card img { width: 100%; height: 220px; object-fit: cover; }
-    .menu-card h4 { margin: 1rem 0 0.5rem; font-size: 1.3rem; color: #2D2A24; }
-    .menu-card .price { font-weight: 700; color: #C7A46B; font-size: 1.2rem; margin-bottom: 1.2rem; display: inline-block; }
+        .login-btn {
+            background: #00a884;
+            border: none;
+            color: #111;
+            font-weight: 700;
+            padding: 16px;
+            width: 100%;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.1s;
+            border: 1px solid #2ad6ac;
+        }
 
-    .news-grid, .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    .news-card, .faq-card { background: white; border-radius: 32px; padding: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.2s; }
-    .news-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 24px; margin-bottom: 16px; }
-    .faq-card h4 { display: flex; align-items: center; gap: 10px; color: #C7A46B; margin-bottom: 12px; }
+        .login-btn:hover {
+            background: #0cbf96;
+        }
 
-    .contact-wrapper {
-      display: flex; flex-wrap: wrap; background: rgba(255, 255, 245, 0.95); backdrop-filter: blur(4px);
-      border-radius: 48px; overflow: hidden; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
-    }
-    .contact-info { flex: 1; padding: 48px; }
-    .contact-info h3 { font-size: 2rem; color: #C7A46B; margin-bottom: 24px; }
-    .contact-detail { display: flex; align-items: center; gap: 16px; margin: 24px 0; }
-    .contact-detail i { width: 44px; height: 44px; background: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #C7A46B; }
-    .social-links { display: flex; gap: 16px; margin: 32px 0; }
-    .social-links a { width: 44px; height: 44px; background: white; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: #C7A46B; transition: 0.2s; }
-    .social-links a:hover { background: #C7A46B; color: white; }
-    .contact-image { flex: 1; background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format') center/cover; min-height: 400px; }
-    footer { background: #2D2A24; color: #CBBFAE; padding: 48px 0; text-align: center; }
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    .qr-floating-btn {
-      position: fixed; bottom: 28px; right: 28px; width: 60px; height: 60px; background: #C7A46B;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      cursor: pointer; z-index: 1100; transition: 0.2s; border: none; color: #2D2A24; font-size: 26px;
-    }
-    .qr-floating-btn:hover { transform: scale(1.05); background: #B48B4A; }
-    .qr-modal {
-      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 2000; align-items: center; justify-content: center;
-    }
-    .qr-modal-content { background: white; border-radius: 48px; max-width: 400px; width: 90%; padding: 32px 24px 40px; text-align: center; position: relative; }
-    .qr-close { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #7e5a41; }
-    #qrCodeContainer { display: flex; justify-content: center; margin: 20px 0; }
+        /* ===== MAIN APP ===== */
+        .app {
+            width: 100%;
+            max-width: 1400px;
+            height: 95vh;
+            background: #1f2c34;
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px black, 0 0 0 1px #2a5670 inset;
+            display: none; /* hidden until login */
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-    @media (max-width: 780px) {
-      .hero-title { font-size: 2.5rem; }
-      .hero-stats { flex-direction: column; gap: 12px; align-items: center; }
-      .navbar { flex-direction: column; }
-      .section-title { font-size: 2.2rem; }
-      .franchise-split { flex-direction: column; }
-      .contact-info { padding: 32px; }
-      .contact-image { min-height: 250px; }
-      section { background-attachment: scroll; }
-      .gallery-card { padding: 32px 24px; }
-      .gallery-item img { height: 220px; }
-    }
-  </style>
+        /* top bar */
+        .top-bar {
+            padding: 12px 20px;
+            background: #1b3442;
+            border-bottom: 1px solid #1e4f6b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .top-bar .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .top-bar img {
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 2px 4px #0066aa);
+        }
+        .top-bar h2 {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .top-bar .user-profile {
+            color: #c1e2ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* main content area where views are swapped */
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* each view */
+        .view {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .view.active-view {
+            display: flex;
+        }
+
+        /* ===== HOME VIEW (chats) ===== */
+        .home-view {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .sidebar {
+            width: 35%;
+            max-width: 420px;
+            background: #111f27;
+            border-right: 1px solid #263e4d;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .sidebar-header {
+            padding: 18px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #1f445a;
+        }
+        .sidebar-header img {
+            width: 36px;
+            height: 36px;
+        }
+        .sidebar-header h3 {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        .search-box {
+            padding: 12px 16px;
+        }
+        .search-box input {
+            width: 100%;
+            background: #1e4055;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 18px;
+            color: white;
+            outline: none;
+        }
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            padding: 8px 16px 12px;
+            border-bottom: 1px solid #1f445a;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+        .filter-tab {
+            background: #1e4055;
+            color: #c1d9ec;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid #2d6380;
+        }
+        .filter-tab.active {
+            background: #00a884;
+            color: #111;
+            border-color: #00c49c;
+        }
+        .contact-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 12px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-bottom: 4px;
+            border: 1px solid transparent;
+        }
+        .contact-item:hover {
+            background: #1b3442;
+        }
+        .contact-item.active {
+            background: #1d4b63;
+            border-color: #317a9e;
+        }
+        .avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #1f5370;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .contact-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .contact-name {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .contact-time {
+            color: #89b7d1;
+            font-size: 0.7rem;
+        }
+        .last-msg {
+            color: #9bbdd2;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+        .unread-badge {
+            background: #00a884;
+            color: #111;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-left: 6px;
+        }
+
+        /* floating action button for home */
+        .fab {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #00a884;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 6px 12px black;
+            border: 2px solid #2ad6ac;
+            z-index: 10;
+        }
+        .fab:hover {
+            background: #0cbf96;
+        }
+
+        /* chat area (right side) */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #0b1b24;
+        }
+        .chat-header {
+            padding: 18px 24px;
+            background: #1b3442;
+            border-bottom: 1px solid #1e4f6b;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .chat-header .avatar {
+            width: 48px;
+            height: 48px;
+        }
+        .chat-header-info h3 {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .chat-header-info p {
+            color: #8fc9e6;
+            font-size: 0.85rem;
+        }
+        .messages-container {
+            flex: 1;
+            padding: 28px 32px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .message {
+            max-width: 65%;
+            padding: 14px 20px;
+            border-radius: 24px;
+            background: #1d4b63;
+            color: white;
+            align-self: flex-start;
+            word-wrap: break-word;
+        }
+        .message.outgoing {
+            background: #025544;
+            align-self: flex-end;
+        }
+        .message-time {
+            font-size: 0.65rem;
+            color: #b0dbf5;
+            margin-top: 4px;
+            text-align: right;
+        }
+        .message-input-area {
+            display: flex;
+            padding: 22px 28px;
+            background: #1b3442;
+            gap: 12px;
+        }
+        .message-input-area input {
+            flex: 1;
+            background: #244a5e;
+            border: none;
+            border-radius: 40px;
+            padding: 16px 24px;
+            color: white;
+            outline: none;
+        }
+        .send-btn {
+            background: #00a884;
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            font-size: 1.4rem;
+            color: #111;
+            cursor: pointer;
+        }
+
+        /* ===== UPDATES VIEW ===== */
+        .updates-view {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            gap: 20px;
+            overflow-y: auto;
+            background: #0b1b24;
+            flex-wrap: wrap;
+        }
+        .status-card {
+            background: #164f6b;
+            border-radius: 32px;
+            padding: 24px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+        .my-status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #1d4b63;
+            padding: 20px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+        }
+        .status-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .status-btn {
+            background: #00a884;
+            border: none;
+            color: #111;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .contact-status {
+            background: #0f4057;
+            border-radius: 30px;
+            padding: 15px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .status-image-preview {
+            max-width: 100%;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* ===== COMMUNITIES VIEW ===== */
+        .communities-view {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            background: #0b1b24;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+        }
+        .community-card {
+            background: #16475f;
+            border-radius: 30px;
+            padding: 24px;
+            width: 300px;
+            border: 1px solid #2c88b0;
+        }
+        .community-fab {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #00a884;
+            color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 6px 12px black;
+            border: 2px solid #2ad6ac;
+        }
+
+        /* ===== CALLS VIEW ===== */
+        .calls-view {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            overflow-y: auto;
+            background: #0b1b24;
+            flex-direction: column;
+        }
+        .call-item {
+            background: #124256;
+            border-radius: 20px;
+            padding: 18px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .call-icon {
+            font-size: 1.8rem;
+            color: #00a884;
+        }
+        .call-info {
+            flex: 1;
+        }
+        .call-time {
+            color: #8fc9e6;
+            font-size: 0.85rem;
+        }
+        .call-actions button {
+            background: #1f5a75;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        /* bottom navigation */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: #10252f;
+            border-top: 2px solid #1f4a60;
+            padding: 10px 0;
+            color: #789eb3;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 30px;
+            transition: 0.1s;
+        }
+        .nav-item i {
+            font-size: 1.6rem;
+        }
+        .nav-item.active {
+            color: #00e1b0;
+            background: #1b4f66;
+        }
+
+        /* hidden */
+        .hidden { display: none !important; }
+    </style>
 </head>
 <body>
-<header>
-  <div class="container navbar">
-    <div class="logo"><i class="fas fa-mug-hot"></i> The Food<span> Stop</span></div>
-    <ul class="nav-links">
-      <li><a href="#home">HOME</a></li><li><a href="#about">ABOUT</a></li><li><a href="#menu">MENU</a></li>
-      <li><a href="#gallery">GALLERY</a></li><li><a href="#franchise">FRANCHISE</a></li><li><a href="#news">BLOGS</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">CONTACT</a></li>
-    </ul>
-    <div class="header-actions">
-      <a href="tel:+918856898113" class="phone-link"><i class="fas fa-phone-alt"></i> +91 88568 98113</a>
+    <!-- LOGIN SCREEN -->
+    <div class="login-screen" id="loginScreen">
+        <h1><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300a884'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='%23111' font-family='Arial'%3E💬%3C/text%3E%3C/svg%3E" alt="logo">Let's Chat</h1>
+        <div class="input-group"><i class="fas fa-envelope"></i><input type="email" id="email" placeholder="Email" value="user@example.com"></div>
+        <div class="input-group"><i class="fas fa-lock"></i><input type="password" id="password" placeholder="Password" value="1234"></div>
+        <div class="checkbox-row"><label><input type="checkbox" checked> Remember me</label><a href="#" class="forgot-link" id="forgotPassword">Forgot password?</a></div>
+        <button class="login-btn" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
     </div>
-  </div>
-</header>
 
-<main>
-  <section id="home">
-    <div class="container hero">
-      <div class="section-icon"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="food stop"></div></div>
-      <div class="hero-tag">EST. 2026</div>
-      <h1 class="hero-title">The Food Stop:<br>Where Every Bite Feels Like Home</h1>
-      <p>From sizzling snacks to soulful beverages — experience India’s most loved cafe & restaurant chain. Join the community of happy foodies and aspiring entrepreneurs.</p>
-      <div class="hero-stats">
-        <div><h3>2026</h3><span>First Outlet</span></div>
-        <div><h3>1</h3><span>Live Franchise</span></div>
-        <div><h3>1M+</h3><span>Smiling Guests</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="about"></div></div>
-      <h2 class="section-title reveal">The Food Stop Story</h2>
-      <div class="about-card reveal">
-        <div class="about-left">
-          <h3>Where Passion Meets Flavor</h3>
-          <p style="color:#2D2A24; line-height:1.6;">The Food Stop started with a simple belief: great food creates unforgettable moments. Today we are one of India's fastest-growing QSR & cafe franchise networks, known for consistent taste, warm ambiance, and franchise-friendly model.</p>
-          <a href="#franchise" class="btn-primary" style="margin-top: 28px; display: inline-block;">Start your journey →</a>
-        </div>
-        <div class="about-right">
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Royalty Free Franchise</li>
-            <li><i class="fas fa-chart-line"></i> Proven business playbook</li>
-            <li><i class="fas fa-store"></i> 1 outlet & turnkey setup</li>
-            <li><i class="fas fa-mug-hot"></i> Global recipes, local love</li>
-            <li><i class="fas fa-heart"></i> 60+ signature items</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MENU section (unchanged) -->
-  <section id="menu">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" alt="menu"></div></div>
-      <h2 class="section-title reveal">Irresistible Flavors</h2>
-      <div class="sub-title reveal">☕ Coffee & Beverages</div>
-      <div class="menu-grid reveal">
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400" alt="Espresso"><h4>Espresso</h4><div class="price">₹149</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400" alt="Americano"><h4>Americano</h4><div class="price">₹159</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400" alt="Mocha"><h4>Mocha</h4><div class="price">₹199</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400" alt="Cold Coffee"><h4>Cold Coffee</h4><div class="price">₹169</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=400" alt="Hot Chocolate"><h4>Hot Chocolate</h4><div class="price">₹179</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400" alt="Masala Tea"><h4>Masala Chai</h4><div class="price">₹99</div></div>
-      </div>
-      <div class="sub-title reveal">🥤 Cold Drinks & Refreshers</div>
-      <div class="menu-grid reveal">
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400" alt="Mango Smoothie"><h4>Mango Smoothie</h4><div class="price">₹189</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400" alt="Chocolate Shake"><h4>Chocolate Shake</h4><div class="price">₹179</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400" alt="Mojito"><h4>Mojito</h4><div class="price">₹149</div></div>
-      </div>
-      <div class="sub-title reveal">🥪 Snacks & Light Food</div>
-      <div class="menu-grid reveal">
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400" alt="Grilled Sandwich"><h4>Grilled Sandwich</h4><div class="price">₹169</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400" alt="Burger"><h4>Veg Burger</h4><div class="price">₹189</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400" alt="Wrap"><h4>Veg Wrap</h4><div class="price">₹179</div></div>
-      </div>
-      <div class="sub-title reveal">🍝 Main Food</div>
-      <div class="menu-grid reveal">
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400" alt="Pasta"><h4>Pasta</h4><div class="price">₹229</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400" alt="Pizza"><h4>Pizza</h4><div class="price">₹299</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400" alt="Fried Rice"><h4>Fried Rice</h4><div class="price">₹209</div></div>
-      </div>
-      <div class="sub-title reveal">🍰 Desserts & Bakery</div>
-      <div class="menu-grid reveal">
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400" alt="Cake"><h4>Chocolate Cake</h4><div class="price">₹149</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400" alt="Brownie"><h4>Walnut Brownie</h4><div class="price">₹129</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=400" alt="Cookies"><h4>Choco Chip Cookies</h4><div class="price">₹99</div></div>
-        <div class="menu-card"><img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400" alt="Croissant"><h4>Butter Croissant</h4><div class="price">₹109</div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NEW GALLERY SECTION: displaying the four WhatsApp images -->
-  <section id="gallery">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://lh3.googleusercontent.com/p/AF1QipNV--mPIR92YQk7PYkLyaki4amPwJfo8P2z3agb=s1360-w1360-h1020-rw"></div></div>
-      <h2 class="section-title reveal">Cafe Moments 📸</h2>
-      <div class="gallery-card reveal">
-        <div class="gallery-grid" id="cafeGalleryGrid">
-          <!-- Image 1: The Food Stop branding with BreakFastLunch|Dinner etc. -->
-          <div class="gallery-item" data-img="https://lh3.googleusercontent.com/p/AF1QipP2CgQXV32GOTjU-4LP3se35ZSPWqT25PbohMI3=s1360-w1360-h1020-rw">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipP2CgQXV32GOTjU-4LP3se35ZSPWqT25PbohMI3=s1360-w1360-h1020-rw">
-            <div class="gallery-caption"><i class="fas fa-sign"></i> The Food Stop — Breakfast • Lunch • Dinner</div>
-          </div>
-          <!-- Image 2: Fizza, Fritta & Chai latte -->
-          <div class="gallery-item" data-img="https://lh3.googleusercontent.com/p/AF1QipNV--mPIR92YQk7PYkLyaki4amPwJfo8P2z3agb=s1360-w1360-h1020-rw">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipNV--mPIR92YQk7PYkLyaki4amPwJfo8P2z3agb=s1360-w1360-h1020-rw" alt="Pizza and Chai Latte">
-            <div class="gallery-caption"><i class="fas fa-pizza-slice"></i> Fizza, Fritta & Chai Latte</div>
-          </div>
-          <!-- Image 3: Food Stop Est. Drink. Eat... -->
-          <div class="gallery-item" data-img="">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipPq4ix1gX0LeTMUwpSGlcw_yHaIO-x1k3auCMuc=s1360-w1360-h1020-rw">
-            <div class="gallery-caption"><i class="fas fa-mug-hot"></i> Food Stop — Est. Drink. Eat...</div>
-          </div>
-          <!-- Image 4: Ye Raju asalaa – Samosa, Burger, Chai etc. -->
-          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1598870113763-84c095b7ffb0?w=800&h=600&fit=crop">
-            <img src="https://lh3.googleusercontent.com/p/AF1QipMo30wnEDhXeBWLqfrqZJ_1tr-E4AlVakGbzJVW=w243-h406-n-k-no-nu">
-            <div class="gallery-caption"><i class="fas fa-utensils"></i> Ye Raju — Samosa • Burger • Chai • Pizza</div>
-          </div>
-        </div>
-        <p style="text-align:center; margin-top: 32px; color:#2D2A24; font-size:0.9rem;"><i class="fas fa-camera"></i> Click any image to view full size</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="franchise">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="franchise"></div></div>
-      <h2 class="section-title reveal">Own a Food Stop – Be Your Own Boss!</h2>
-      <div class="franchise-card reveal">
-        <div class="franchise-split">
-          <div class="franchise-left">
-            <h3>Turn Your Passion into Profit</h3>
-            <p style="color:#2D2A24;">Join India's most loved cafe franchise with a proven business model, zero royalty, and end-to-end support. Your success is our mission.</p>
-            <div style="margin: 28px 0;">
-              <span class="feature-badge"><i class="fas fa-check-circle"></i> Low Investment (₹10L+)</span>
-              <span class="feature-badge"><i class="fas fa-chalkboard-user"></i> Complete Training</span>
-              <span class="feature-badge"><i class="fas fa-gem"></i> Zero Royalty</span>
-              <span class="feature-badge"><i class="fas fa-chart-line"></i> High ROI Potential</span>
-              <span class="feature-badge"><i class="fas fa-bullhorn"></i> 360° Marketing</span>
+    <!-- MAIN APP -->
+    <div class="app" id="app">
+        <!-- Top bar -->
+        <div class="top-bar">
+            <div class="logo-area">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300a884'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='%23111' font-family='Arial'%3E💬%3C/text%3E%3C/svg%3E" alt="">
+                <h2>Let's Chat</h2>
             </div>
-            <a href="tel:+918856898113" class="btn-primary"><i class="fas fa-phone-alt"></i> Call Now: +91 88568 98113</a>
-          </div>
-          <div class="franchise-right">
-            <h4 style="color:#C7A46B; margin-bottom: 20px;">Request a Callback</h4>
-            <input type="text" placeholder="Full Name">
-            <input type="tel" placeholder="Mobile Number">
-            <input type="email" placeholder="Email">
-            <select><option>Preferred City</option><option>Mumbai</option><option>Delhi</option><option>Bangalore</option><option>Hyderabad</option><option>Chennai</option></select>
-            <button class="btn-primary" style="width:100%; margin-top:12px;">Submit Request</button>
-          </div>
+            <div class="user-profile" id="userProfile"><i class="fas fa-user-circle"></i> user@example.com</div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="news">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/2545/2545019.png" alt="blog"></div></div>
-      <h2 class="section-title reveal">Freshly Brewed Stories</h2>
-      <div class="news-grid">
-        <div class="news-card reveal"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400"><h4>The Food Stop: India's Most Loved Food Chain</h4><p>How a small cafe became a nationwide sensation with authentic flavors.</p><a href="#" style="color:#C7A46B; font-weight:500;">Read more →</a></div>
-        <div class="news-card reveal"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400"><h4>Top 5 Instagrammable Spots</h4><p>Discover the most aesthetic corners to capture your food moments.</p><a href="#" style="color:#C7A46B; font-weight:500;">Read more →</a></div>
-        <div class="news-card reveal"><img src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400"><h4>Behind the Scenes: Our Secret Sauces</h4><p>We reveal what makes our dishes irresistible.</p><a href="#" style="color:#C7A46B; font-weight:500;">Read more →</a></div>
-      </div>
-    </div>
-  </section>
+        <!-- Main content (views) -->
+        <div class="main-content" id="mainContent">
+            <!-- HOME VIEW -->
+            <div class="view active-view home-view" id="homeView">
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2300a884'/%3E%3Ctext x='50' y='70' font-size='50' text-anchor='middle' fill='%23111' font-family='Arial'%3E💬%3C/text%3E%3C/svg%3E" alt="">
+                        <h3>Chats</h3>
+                    </div>
+                    <div class="search-box"><input type="text" placeholder="Search or start a new chat"></div>
+                    <div class="filter-tabs" id="filterTabs">
+                        <span class="filter-tab active" data-filter="all">All</span>
+                        <span class="filter-tab" data-filter="favourite">Favourites</span>
+                        <span class="filter-tab" data-filter="group">Groups</span>
+                        <span class="filter-tab" data-filter="friend">Friend</span>
+                    </div>
+                    <div class="contact-list" id="contactList"></div>
+                    <!-- FAB for adding member -->
+                    <div class="fab" id="addMemberFab"><i class="fas fa-user-plus"></i></div>
+                </div>
+                <div class="chat-area" id="chatArea">
+                    <div class="chat-header" id="chatHeader">
+                        <!-- dynamic -->
+                    </div>
+                    <div class="messages-container" id="messagesContainer"></div>
+                    <div class="message-input-area">
+                        <input type="text" id="messageInput" placeholder="Type a message">
+                        <button class="send-btn" id="sendButton"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
 
-  <section id="faq">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/709/709586.png" alt="faq"></div></div>
-      <h2 class="section-title reveal">Got Questions? We've Got Answers.</h2>
-      <div class="faq-grid">
-        <div class="faq-card reveal"><h4><i class="fas fa-rupee-sign"></i> Investment?</h4><p>Starts from ₹10 lakhs. Low operational cost, high ROI potential.</p></div>
-        <div class="faq-card reveal"><h4><i class="fas fa-chalkboard-user"></i> Training?</h4><p>2 weeks intensive training + on-site support during launch and beyond.</p></div>
-        <div class="faq-card reveal"><h4><i class="fas fa-gem"></i> Royalty-free?</h4><p>Absolutely! The Food Stop operates on a 100% royalty-free model.</p></div>
-        <div class="faq-card reveal"><h4><i class="fas fa-clock"></i> Setup time?</h4><p>Typically 30-45 days from agreement to grand opening.</p></div>
-      </div>
-    </div>
-  </section>
+            <!-- UPDATES VIEW -->
+            <div class="view" id="updatesView">
+                <div style="width:100%; padding:20px; overflow-y:auto;">
+                    <div class="my-status">
+                        <div class="avatar"><i class="fas fa-user"></i></div>
+                        <div><strong style="color:white;">My status</strong><br><span class="contact-time">Tap to add</span></div>
+                    </div>
+                    <div class="status-actions">
+                        <button class="status-btn" id="fileStatusBtn"><i class="fas fa-paperclip"></i> File</button>
+                        <button class="status-btn" id="cameraStatusBtn"><i class="fas fa-camera"></i> Camera</button>
+                    </div>
+                    <div id="statusPreview" style="color:#8db3c7; margin:10px 0;"></div>
+                    <div id="statusImagePreview" class="status-image-preview"></div>
+                    <h3 style="color:white; margin:20px 0 10px;">Contacts' updates</h3>
+                    <div id="contactsStatusList">
+                        <!-- dynamic -->
+                    </div>
+                </div>
+            </div>
 
-  <section id="contact">
-    <div class="container">
-      <div class="section-icon reveal"><div class="rotating-icon"><img src="https://cdn-icons-png.flaticon.com/512/3095/3095582.png" alt="contact"></div></div>
-      <h2 class="section-title reveal">Let’s Connect</h2>
-      <div class="contact-wrapper reveal">
-        <div class="contact-info">
-          <h3>We'd love to hear from you</h3>
-          <div class="contact-detail"><i class="fas fa-phone-alt"></i> <strong>+91 88568 98113</strong> (Franchise Hotline)</div>
-          <div class="contact-detail"><i class="fas fa-envelope"></i> <strong>hello@thefoodstop.in</strong></div>
-          <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> <strong>Corporate Office:</strong> New Delhi, India</div>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-          </div>
-          <div class="contact-cta" style="display:flex; gap:16px; flex-wrap:wrap;">
-            <a href="#franchise" class="btn-primary">Become a Partner</a>
-            <a href="tel:+918856898113" class="btn-outline">Call Now</a>
-          </div>
+            <!-- COMMUNITIES VIEW -->
+            <div class="view" id="communitiesView">
+                <div style="width:100%; padding:20px; overflow-y:auto; position:relative;">
+                    <div id="communitiesList" style="display:flex; flex-wrap:wrap; gap:20px;"></div>
+                    <div class="community-fab" id="addCommunityBtn"><i class="fas fa-plus"></i></div>
+                </div>
+            </div>
+
+            <!-- CALLS VIEW -->
+            <div class="view" id="callsView">
+                <div style="width:100%; padding:20px; overflow-y:auto;">
+                    <div id="callsList"></div>
+                    <div style="margin-top:20px;">
+                        <button class="status-btn" id="voiceCallDemo"><i class="fas fa-phone"></i> Voice call</button>
+                        <button class="status-btn" id="videoCallDemo"><i class="fas fa-video"></i> Video call</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="contact-image"></div>
-      </div>
+
+        <!-- Bottom navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active" data-view="homeView"><i class="fas fa-home"></i><span>Home</span></div>
+            <div class="nav-item" data-view="updatesView"><i class="fas fa-circle"></i><span>Updates</span></div>
+            <div class="nav-item" data-view="communitiesView"><i class="fas fa-users"></i><span>Communities</span></div>
+            <div class="nav-item" data-view="callsView"><i class="fas fa-phone-alt"></i><span>Calls</span></div>
+        </div>
     </div>
-  </section>
-</main>
 
-<footer>
-  <div class="container">
-    <p>© 2025 The Food Stop — India's fastest-growing food & cafe franchise. All rights reserved.</p>
-    <div style="margin-top: 20px;">
-      <a href="#" style="color:#CBBFAE; margin:0 12px;"><i class="fab fa-instagram"></i></a>
-      <a href="#" style="color:#CBBFAE; margin:0 12px;"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" style="color:#CBBFAE; margin:0 12px;"><i class="fab fa-linkedin-in"></i></a>
-    </div>
-  </div>
-</footer>
+    <script>
+        (function() {
+            // ========== MOCK DATA ==========
+            // Contacts with types for filtering
+            const contacts = [
+                { id: 'atharv1', name: 'Atharv Bulkunde (You)', lastMsg: 'Message yourself', time: '', unread: 0, avatar: 'AB', type: 'favourite' },
+                { id: 'phoenix', name: 'phoenix FY B-1', lastMsg: 'You: You deleted this message', time: '30/01/2026', unread: 0, avatar: 'PF', type: 'group' },
+                { id: 'atharv2', name: 'Atharv Bulkunde (You)', lastMsg: 'https://chat-buddy-connect-11.lo...', time: 'Yesterday', unread: 2, avatar: 'AB', type: 'favourite' },
+                { id: 'plus2', name: '+2', lastMsg: 'Video', time: '12:13 am', unread: 0, avatar: '+2', type: 'friend' },
+                { id: 'sham', name: 'sham kadam', lastMsg: 'youtube.com', time: 'Yesterday', unread: 0, avatar: 'SK', type: 'friend' },
+                { id: 'kontya', name: 'kontya', lastMsg: 'https://youtu.be.com/shorts/l2xGy8xFwRo?si=wkK11plbcCI0tmdx', time: 'Yesterday', unread: 0, avatar: 'K', type: 'friend' },
+                { id: 'outskill', name: 'Outskill Reminders', lastMsg: 'Stop', time: 'Yesterday', unread: 0, avatar: 'OR', type: 'all' },
+                { id: 'buildx', name: 'Build X', lastMsg: 'Thank You, Builde.', time: 'Wednesday', unread: 0, avatar: 'BX', type: 'all' },
+                { id: 'adyaa', name: 'Adyaa', lastMsg: 'Kay kartoyes', time: 'Yesterday', unread: 0, avatar: 'AD', type: 'friend' },
+                { id: 'chatbuddy1', name: 'chat-buddy-connect-11.lovable.app', lastMsg: 'https://chat-buddy-connect-11.lovable.app', time: 'Yesterday', unread: 0, avatar: '🌐', type: 'all' },
+                { id: 'bobby', name: 'Bobby', lastMsg: 'https://chat-buddy-connect-11.lovable.app', time: 'Yesterday', unread: 0, avatar: 'BO', type: 'friend' },
+                { id: 'suyash', name: 'Suyash', lastMsg: 'Flow_Sensor_Technology.pdf·9...', time: 'Yesterday', unread: 0, avatar: 'SU', type: 'friend' },
+                { id: 'phone', name: '+917558276175', lastMsg: 'https://chat-buddy-connect-11.lovable.ap', time: 'Yesterday', unread: 0, avatar: '+91', type: 'all' },
+                { id: 'mom', name: 'Mom', lastMsg: 'Type a message', time: 'Wednesday', unread: 0, avatar: 'M', type: 'favourite' }
+            ];
 
-<!-- QR Modal -->
-<div class="qr-floating-btn" id="qrPopupBtn"><i class="fas fa-qrcode"></i></div>
-<div id="qrModal" class="qr-modal">
-  <div class="qr-modal-content">
-    <span class="qr-close" id="closeQrModal">&times;</span>
-    <h3><i class="fas fa-mobile-alt"></i> Scan & Go</h3>
-    <p>Scan this QR code with your phone to instantly view The Food Stop website on mobile.</p>
-    <div id="qrCodeContainer"></div>
-    <div style="margin-top:16px; font-size:0.8rem; background:#FCF8F0; padding:8px 16px; border-radius:40px;"><i class="fas fa-camera"></i> Open camera / QR scanner → tap the link</div>
-  </div>
-</div>
+            // Messages DB
+            const messagesDB = {
+                atharv1: [{ text: 'This is your own space. Message yourself.', incoming: false, time: '10:00' }],
+                phoenix: [{ text: 'You deleted this message', incoming: true, time: '30/01/2026' }],
+                atharv2: [{ text: 'https://chat-buddy-connect-11.lo...', incoming: true, time: 'Yesterday' }],
+                default: [{ text: 'Hey there!', incoming: true, time: '12:00' }]
+            };
 
-<!-- LIGHTBOX MODAL (POPUP) FOR GALLERY IMAGES -->
-<div id="lightboxModal" class="lightbox-modal">
-  <div class="lightbox-content">
-    <span class="close-lightbox">&times;</span>
-    <img id="lightboxImg" src="" alt="Enlarged cafe view">
-  </div>
-</div>
+            // Status updates (simulated)
+            let myStatus = [];
+            const contactStatuses = [
+                { name: 'Alice Chen', status: '📸 photo', time: '2 min ago' },
+                { name: 'Bob Miller', status: '📎 file', time: '1 hour ago' },
+                { name: 'Carol Davis', status: '😄 feeling happy', time: 'yesterday' }
+            ];
 
-<script>
-  // Scroll reveal animation
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
-  reveals.forEach(el => observer.observe(el));
+            // Communities
+            let communities = [
+                { name: 'Design Guild', members: 48 },
+                { name: 'Tech Weekly', members: 127 }
+            ];
 
-  // Smooth navigation
-  document.querySelectorAll('.nav-links a, .btn-primary[href^="#"], .btn-outline[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        const target = document.querySelector(targetId);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  });
+            // Calls
+            let calls = [
+                { name: 'Alice Chen', type: 'voice', time: 'Today, 11:30', icon: 'fa-phone' },
+                { name: 'Bob Miller', type: 'video', time: 'Yesterday, 18:22', icon: 'fa-video' }
+            ];
 
-  // QR Code Modal
-  const qrBtn = document.getElementById('qrPopupBtn');
-  const qrModal = document.getElementById('qrModal');
-  const closeModal = document.getElementById('closeQrModal');
-  const qrContainer = document.getElementById('qrCodeContainer');
-  function generateQRCode() {
-    qrContainer.innerHTML = '';
-    try {
-      new QRCode(qrContainer, {
-        text: window.location.href,
-        width: 220,
-        height: 220,
-        colorDark: "#C7A46B",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.M
-      });
-    } catch(e) {
-      qrContainer.innerHTML = '<p>🔲 Scan this page</p>';
-    }
-  }
-  qrBtn.addEventListener('click', () => {
-    qrModal.style.display = 'flex';
-    generateQRCode();
-  });
-  closeModal.addEventListener('click', () => qrModal.style.display = 'none');
-  window.addEventListener('click', (e) => {
-    if (e.target === qrModal) qrModal.style.display = 'none';
-  });
+            let currentContactId = 'atharv1';
+            let currentFilter = 'all';
 
-  // ----- GALLERY POPUP (LIGHTBOX) -----
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const closeLightbox = document.querySelector('.close-lightbox');
-  const galleryItems = document.querySelectorAll('.gallery-item');
+            // ========== RENDER CONTACT LIST (with filter) ==========
+            function renderContactList() {
+                const container = document.getElementById('contactList');
+                container.innerHTML = '';
+                const filtered = contacts.filter(c => currentFilter === 'all' || c.type === currentFilter);
+                filtered.forEach(contact => {
+                    const div = document.createElement('div');
+                    div.className = `contact-item ${contact.id === currentContactId ? 'active' : ''}`;
+                    div.dataset.id = contact.id;
+                    div.innerHTML = `
+                        <div class="avatar">${contact.avatar}</div>
+                        <div class="contact-info">
+                            <div class="contact-row">
+                                <span class="contact-name">${contact.name}</span>
+                                <span class="contact-time">${contact.time}</span>
+                            </div>
+                            <div class="last-msg">${contact.lastMsg}</div>
+                        </div>
+                        ${contact.unread ? `<div class="unread-badge">${contact.unread}</div>` : ''}
+                    `;
+                    div.addEventListener('click', () => switchContact(contact.id));
+                    container.appendChild(div);
+                });
+            }
 
-  function openLightbox(imageUrl) {
-    lightboxImg.src = imageUrl;
-    lightboxModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
+            function switchContact(contactId) {
+                currentContactId = contactId;
+                renderContactList();
+                renderChatHeader();
+                renderMessages();
+            }
 
-  function closeLightboxModal() {
-    lightboxModal.style.display = 'none';
-    lightboxImg.src = '';
-    document.body.style.overflow = '';
-  }
+            function renderChatHeader() {
+                const contact = contacts.find(c => c.id === currentContactId);
+                if (!contact) return;
+                document.getElementById('chatHeader').innerHTML = `
+                    <div class="avatar">${contact.avatar}</div>
+                    <div class="chat-header-info">
+                        <h3>${contact.name}</h3>
+                        <p>Online</p>
+                    </div>
+                `;
+            }
 
-  galleryItems.forEach(item => {
-    item.addEventListener('click', (e) => {
-      let highResSrc = item.getAttribute('data-img');
-      if (!highResSrc) {
-        const imgElement = item.querySelector('img');
-        highResSrc = imgElement ? imgElement.src : '';
-      }
-      if (highResSrc) openLightbox(highResSrc);
-    });
-  });
+            function renderMessages() {
+                const container = document.getElementById('messagesContainer');
+                const messages = messagesDB[currentContactId] || messagesDB.default;
+                container.innerHTML = '';
+                messages.forEach(msg => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = `message ${msg.incoming ? '' : 'outgoing'}`;
+                    msgDiv.innerHTML = `${msg.text}<div class="message-time">${msg.time}</div>`;
+                    container.appendChild(msgDiv);
+                });
+                container.scrollTop = container.scrollHeight;
+            }
 
-  closeLightbox.addEventListener('click', closeLightboxModal);
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeLightboxModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.style.display === 'flex') {
-      closeLightboxModal();
-    }
-  });
-</script>
+            function sendMessage() {
+                const input = document.getElementById('messageInput');
+                const text = input.value.trim();
+                if (!text) return;
+                if (!messagesDB[currentContactId]) messagesDB[currentContactId] = [];
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                messagesDB[currentContactId].push({ text, incoming: false, time: timeStr });
+                const contact = contacts.find(c => c.id === currentContactId);
+                if (contact) { contact.lastMsg = text; contact.time = 'Just now'; }
+                renderMessages();
+                renderContactList();
+                input.value = '';
+            }
+
+            // ========== FILTER TABS ==========
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    renderContactList();
+                });
+            });
+
+            // ========== ADD MEMBER FAB ==========
+            document.getElementById('addMemberFab').addEventListener('click', function() {
+                const name = prompt('Enter new contact name:');
+                if (!name) return;
+                const newContact = {
+                    id: 'c' + Date.now(),
+                    name: name,
+                    lastMsg: 'New contact',
+                    time: 'Now',
+                    unread: 0,
+                    avatar: name.substring(0,2).toUpperCase(),
+                    type: 'friend'
+                };
+                contacts.push(newContact);
+                renderContactList();
+            });
+
+            // ========== UPDATES VIEW ==========
+            document.getElementById('fileStatusBtn').addEventListener('click', function() {
+                document.getElementById('statusPreview').innerHTML = '📎 File selected (simulated)';
+                // Simulate image
+                document.getElementById('statusImagePreview').innerHTML = '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%23366b8e\'/%3E%3Ctext x=\'10\' y=\'55\' fill=\'white\' font-size=\'14\'%3E📷 status%3C/text%3E%3C/svg%3E" style="border-radius:20px; max-width:100%;">';
+            });
+            document.getElementById('cameraStatusBtn').addEventListener('click', function() {
+                document.getElementById('statusPreview').innerHTML = '📸 Photo captured (simulated)';
+                document.getElementById('statusImagePreview').innerHTML = '<img src="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'45\' fill=\'%23366b8e\'/%3E%3Ctext x=\'20\' y=\'60\' fill=\'white\' font-size=\'14\'%3E📸 selfie%3C/text%3E%3C/svg%3E" style="border-radius:20px; max-width:100%;">';
+            });
+            // Render contacts status list
+            const statusContainer = document.getElementById('contactsStatusList');
+            contactStatuses.forEach(s => {
+                statusContainer.innerHTML += `<div class="contact-status"><div class="avatar">${s.name[0]}</div><div><strong style="color:white;">${s.name}</strong><br><span class="contact-time">${s.status} · ${s.time}</span></div></div>`;
+            });
+
+            // ========== COMMUNITIES VIEW ==========
+            function renderCommunities() {
+                const container = document.getElementById('communitiesList');
+                container.innerHTML = '';
+                communities.forEach(c => {
+                    container.innerHTML += `<div class="community-card"><i class="fas fa-users fa-2x" style="color:#9fc9ff;"></i><h3 style="color:white;">${c.name}</h3><p style="color:#b5d6ed;">${c.members} members</p></div>`;
+                });
+            }
+            renderCommunities();
+            document.getElementById('addCommunityBtn').addEventListener('click', function() {
+                const name = prompt('Community name:');
+                if (name) { communities.push({ name, members: 1 }); renderCommunities(); }
+            });
+
+            // ========== CALLS VIEW ==========
+            function renderCalls() {
+                const container = document.getElementById('callsList');
+                container.innerHTML = '';
+                calls.forEach(c => {
+                    container.innerHTML += `<div class="call-item"><i class="fas ${c.icon} call-icon"></i><div class="call-info"><strong style="color:white;">${c.name}</strong><br><span class="call-time">${c.type} call · ${c.time}</span></div><div class="call-actions"><button><i class="fas fa-phone"></i></button><button><i class="fas fa-video"></i></button></div></div>`;
+                });
+            }
+            renderCalls();
+            document.getElementById('voiceCallDemo').addEventListener('click', () => alert('Voice call started (demo)'));
+            document.getElementById('videoCallDemo').addEventListener('click', () => alert('Video call started (demo)'));
+
+            // ========== BOTTOM NAVIGATION ==========
+            const navItems = document.querySelectorAll('.nav-item');
+            const views = {
+                homeView: document.getElementById('homeView'),
+                updatesView: document.getElementById('updatesView'),
+                communitiesView: document.getElementById('communitiesView'),
+                callsView: document.getElementById('callsView')
+            };
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(n => n.classList.remove('active'));
+                    this.classList.add('active');
+                    const viewId = this.dataset.view;
+                    Object.values(views).forEach(v => v.classList.remove('active-view'));
+                    views[viewId].classList.add('active-view');
+                });
+            });
+
+            // ========== LOGIN ==========
+            document.getElementById('loginBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value.trim();
+                const pass = document.getElementById('password').value.trim();
+                if (email && pass) {
+                    document.getElementById('loginScreen').style.display = 'none';
+                    document.getElementById('app').style.display = 'flex';
+                    document.getElementById('userProfile').innerHTML = `<i class="fas fa-user-circle"></i> ${email}`;
+                } else alert('Enter email and password');
+            });
+            document.getElementById('forgotPassword').addEventListener('click', (e) => { e.preventDefault(); alert('Reset link sent'); });
+
+            // ========== SEND MESSAGE ==========
+            document.getElementById('sendButton').addEventListener('click', sendMessage);
+            document.getElementById('messageInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage(); });
+
+            // Initialize
+            renderContactList();
+            renderChatHeader();
+            renderMessages();
+        })();
+    </script>
 </body>
 </html>
